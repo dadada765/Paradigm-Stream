@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradigm Stream | Critical Television Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap');
+        
+        :root {
+            --primary: #111111;
+            --accent: #d4af37; /* Academic Gold */
+            --text-main: #f8f8f8;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .blog-post-content p {
+            margin-bottom: 1.5rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.2rem;
+            color: #d1d1d1;
+        }
+
+        .blog-post-content h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+
+        .reference-box {
+            background: #1a1a1a;
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+            word-break: break-all;
+        }
+
+        .reference-box a {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        [data-view] { display: none; }
+        [data-view].active { display: block; animation: fadeIn 0.5s ease-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(17,17,17,0.3) 0%, rgba(17,17,17,1) 100%);
+        }
+
+        .post-image-container {
+            margin: 3rem 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #0a0a0a;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showView('home')">
+                <span class="text-2xl font-bold tracking-widest serif italic text-amber-500">P|S</span>
+                <span class="hidden sm:block text-lg font-light tracking-[0.2em] uppercase">Paradigm Stream</span>
+            </div>
+            
+            <div class="flex gap-8 text-xs font-bold uppercase tracking-widest">
+                <button onclick="showView('home')" class="nav-link">Home</button>
+                <button onclick="showView('about')" class="nav-link">About</button>
+                <div class="relative group hidden md:block">
+                    <button class="nav-link">Analysis <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i></button>
+                    <div class="absolute right-0 top-full mt-2 w-64 bg-zinc-900 border border-white/10 rounded py-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto">
+                        <button onclick="showView('post-squid')" class="w-full text-left px-4 py-2 hover:bg-zinc-800 text-[10px]">The Price of Capitalism</button>
+                        <button onclick="showView('post-zombie')" class="w-full text-left px-4 py-2 hover:bg-zinc-800 text-[10px]">Youth Horror & Bingeing</button>
+                        <button onclick="showView('post-collar')" class="w-full text-left px-4 py-2 hover:bg-zinc-800 text-[10px]">White Collar Ethics</button>
+                        <button onclick="showView('post-tour')" class="w-full text-left px-4 py-2 hover:bg-zinc-800 text-[10px]">The Grand Tour Culture</button>
+                        <button onclick="showView('post-anime')" class="w-full text-left px-4 py-2 hover:bg-zinc-800 text-[10px]">Japanese Anime Era</button>
+                        <button onclick="showView('post-invasion')" class="w-full text-left px-4 py-2 hover:bg-zinc-800 text-[10px]">Invasion & Global Crisis</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Views -->
+    <main class="pt-20">
+        
+        <!-- HOME VIEW -->
+        <section data-view="home" class="active">
+            <div class="relative h-[70vh] flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1593784991095-a205039475fe?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-fixed bg-center opacity-40"></div>
+                <div class="absolute inset-0 hero-gradient"></div>
+                <div class="relative z-10 text-center px-6">
+                    <h1 class="text-6xl md:text-8xl font-bold serif mb-4">Paradigm Stream</h1>
+                    <p class="text-lg md:text-xl font-light tracking-[0.3em] uppercase text-amber-500 mb-8">Television • Culture • Critique</p>
+                    <div class="w-24 h-px bg-amber-500 mx-auto"></div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 py-24">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <div class="group cursor-pointer" onclick="showView('post-squid')">
+                        <div class="aspect-video overflow-hidden mb-6 bg-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1634157703702-3c124b455499?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <h3 class="text-xl font-bold serif mb-2">Squid Game: The Human Price of Capitalism</h3>
+                        <p class="text-sm text-zinc-500 line-clamp-2 italic mb-4">An exploration of inequality and the commodification of critique in the streaming age.</p>
+                        <span class="text-xs font-bold uppercase tracking-tighter text-amber-500">Read Analysis —</span>
+                    </div>
+
+                    <div class="group cursor-pointer" onclick="showView('post-zombie')">
+                        <div class="aspect-video overflow-hidden mb-6 bg-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1505632958218-4f23394784a6?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <h3 class="text-xl font-bold serif mb-2">All of Us Are Dead: Youth Horror</h3>
+                        <p class="text-sm text-zinc-500 line-clamp-2 italic mb-4">Analyzing generation abandonment and the industrial logic of the Netflix binge model.</p>
+                        <span class="text-xs font-bold uppercase tracking-tighter text-amber-500">Read Analysis —</span>
+                    </div>
+
+                    <div class="group cursor-pointer" onclick="showView('post-collar')">
+                        <div class="aspect-video overflow-hidden mb-6 bg-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <h3 class="text-xl font-bold serif mb-2">White Collar: Charm and Control</h3>
+                        <p class="text-sm text-zinc-500 line-clamp-2 italic mb-4">Why we support Neal Caffrey: Aesthetics, charisma, and the normalization of surveillance.</p>
+                        <span class="text-xs font-bold uppercase tracking-tighter text-amber-500">Read Analysis —</span>
+                    </div>
+
+                    <div class="group cursor-pointer" onclick="showView('post-tour')">
+                        <div class="aspect-video overflow-hidden mb-6 bg-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <h3 class="text-xl font-bold serif mb-2">The Grand Tour: From Speed to Culture</h3>
+                        <p class="text-sm text-zinc-500 line-clamp-2 italic mb-4">Masculine friendship and the 'Tourist Gaze' as a global entertainment package.</p>
+                        <span class="text-xs font-bold uppercase tracking-tighter text-amber-500">Read Analysis —</span>
+                    </div>
+
+                    <div class="group cursor-pointer" onclick="showView('post-anime')">
+                        <div class="aspect-video overflow-hidden mb-6 bg-zinc-800 relative">
+                            <img src="Screenshot 2026-03-09 at 17.29.49.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                        <h3 class="text-xl font-bold serif mb-2">The Japanese Anime Revolution</h3>
+                        <p class="text-sm text-zinc-500 line-clamp-2 italic mb-4">Tracing the transition from pirated subculture to global mainstream distribution in the streaming age.</p>
+                        <span class="text-xs font-bold uppercase tracking-tighter text-amber-500">Read Analysis —</span>
+                    </div>
+
+                    <div class="group cursor-pointer" onclick="showView('post-invasion')">
+                        <div class="aspect-video overflow-hidden mb-6 bg-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <h3 class="text-xl font-bold serif mb-2">Invasion: Crisis and Media</h3>
+                        <p class="text-sm text-zinc-500 line-clamp-2 italic mb-4">A multidimensional reading of epistemology and human response in Apple TV+'s sci-fi epic.</p>
+                        <span class="text-xs font-bold uppercase tracking-tighter text-amber-500">Read Analysis —</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT VIEW -->
+        <section data-view="about" class="py-24 px-6 max-w-5xl mx-auto">
+            <h2 class="text-5xl font-bold serif mb-12 border-b border-amber-500/30 pb-6">About Paradigm Stream</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div>
+                    <h4 class="text-amber-500 uppercase tracking-widest font-bold text-xs mb-4">Our Identity</h4>
+                    <p class="text-lg text-zinc-300 mb-6 font-light">Paradigm Stream is a collaborative critical blog established by media studies students to investigate the "Demotic Turn" in contemporary television.</p>
+                    <p class="text-zinc-400">Our branding represents the intersection of scholarly analysis and digital media consumption. We utilize high-contrast, minimalist design to highlight the weight of the text while maintaining accessibility for a modern digital audience.</p>
+                </div>
+                <div>
+                    <h4 class="text-amber-500 uppercase tracking-widest font-bold text-xs mb-4">Target Audience</h4>
+                    <ul class="space-y-4 text-sm tracking-wide">
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> <span><strong>Media Students:</strong> Looking for deep-dives into communication theory.</span></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> <span><strong>Cultural Critics:</strong> Interested in how shows function as social allegories.</span></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-amber-500 mt-1"></i> <span><strong>Global Industry Observers:</strong> Tracking the shift to global digital platforms.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOG POST: SQUID GAME -->
+        <article data-view="post-squid" class="py-24 px-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl font-bold serif mb-12">Squid Game</h1>
+            <div class="blog-post-content">
+                <h2>Introduction</h2>
+                <p>The growth of the streaming services transformed modern television because it provides locally made television to the global audience at real-time. Spread globally by Netflix, Squid Game was able to become a global success even though it is a series in the Korean language, proving the popularity of streaming culture. The series tells the audience of the struggle of the few against the huge debt and follows those who enter the deadly children games to win it and get out of the hole they were in, as a form of emphasizing the increasing inequality and social strains within competitive capitalistic societies. Re introducing regular individuals who had to deny morality and relations to survive economically, the series teaches the viewers how any economic structure can turn a human being into a monetary worth. Meanwhile, the affluent audience of the games as entertainment demonstrate the present-day audience as spectacle eaters and you encourage the viewers to also think of their own involvement as observers. So, in addition to condemning social inequity, Squid Game is a cautionary tale on the human price of stiff competition in modern society.</p>
+                
+                <h2>Social Inequality and Social Warning</h2>
+                <p>Further developing its image of economic hardship, Squid Game has already become the great example of a strong reproach against the social inequality and the human cost of extreme competition in modern capitalistic communities. The recipients of the games are neither criminals nor outsiders but normal people with debt accumulated and no jobs and lost money which are real social strains encountered in many contemporary economies. To give an example, the protagonist Seong Gi-hun joins the game having lost a well-paid job and personal debt as an example of how economic insecurity can be slowly depriving people of meaningful decisions. According to scholars, the series reveals the deception of equity in capitalist competition whereby success is seen to fall upon individual performance whilst structural inequality is still predetermining performance (Arakaki, Y.A. 2023). This equality in taking part in the games of the children is a symbol of the false equality since all players are subjected to the same rules, but have unequal opportunities of survival depending on the alliances and social positioning.</p>
+                <p>Moreover, the show gives a cautionary message of the way in which economic desperation transforms moral conduct. The story indicates that the empathy and moral duty can be eroded by systems whose organizational culture is mainly motivated by financial gain. Neoliberal societies make people consider themselves in a contest as a subject, who keeps on its own track of success and failure (Han, 2017). Squid Game brings this state of affairs to light through depicting the contestants accusing themselves of their own lack of strength instead of the system that preys on them. The high income VIP spectators watching the games to be entertained also reflect the modern spectators who watch suffering in the media and makes the spectators think about their passive action towards inequality. In a sense, this means that the series is not just entertainment but a social caution over the cost of human to human competition in the economy and the naturalisation of inequality in contemporary society.</p>
+                
+                <h2>Streaming Platforms and the Commodification of Critique</h2>
+                <p>Although Squid Game is a very powerful message on the topic of social inequality, the global popularity of the movie cannot be viewed outside of the industrial logic of streaming services that helped the movie disseminate so swiftly. The series was distributed helpfully all over the planet by Netflix, and at the same time, it was launched in most areas, enabling audiences to view and discuss the programme in real time via the social media and internet groups. This is a digital distribution model that will turn the watching of the television into a communal digital experience and not something constrained by the national broadcasting mechanisms. Lotz (2017) suggests that television being spread over online platforms redefines the way the viewers interact with the content by fostering unending subscriptions and the recommendation engine that is individually tailored to each viewer and promoting content, which is more thrilling to watch. With Squid Game, colourful game spaces and masked guards were some of the subjects that visually stood out and extended further of the series to be easily realised and shared on the internet connecting with audiences in the same way advertisements did in the past.</p>
+                <p>But this success also causes a significant contradiction. Even though the show condemns capitalistic exploitation and economic competition, it too has got itself attached to lucrative streaming economy that thrives on viewership and subscriptions. Studies of international streaming distribution indicate that mechanisms like Netflix broaden the cultural flow, and they still retain a high demand over the manner through which content goes to international consumers (Lobato, 2019). Consequently, even the tales that undermine social inequity may remain useful commercial items in platform dominated media regimes. The international success of Squid Game thus reflects the way in which the streaming culture is able to incorporate social critique and still be seen as functioning within the same economic systems that are being challenged such that critical discourses become massively consumed products as part of the streaming economy.</p>
+                
+                <h2>Conclusion</h2>
+                <p>The Squid Game proves that there is a great relationship between social criticism and world-wide media dissemination. The series reveals the impact of economic inequality, revealing how the people with limited finances are under duress, and resorted to making extreme moral decisions and betrayal in order to survive. Meanwhile, the popularity of the series worldwide demonstrates the impact of streaming platforms on the creation of cultural reception. The same distribution, however, also brings out a contradiction: whereas the series criticizes the capitalistic exploitation, the show gets incorporated in the streammaking economy which brings in the revenue and attention of the audience. This contradiction is a portrayal of how the media can also challenge and engage in its economic systems. In the end, Squid Game manages to provide amusement and provoke the viewer, making them think of ethical issues of financial desperation and societal effects of inequality. It is a reflection of the modern social problems and a case study of the effect of globalizing streaming platforms on selecting stories that are delivered to viewers and how the critical narrative is absorbed by people throughout the world.</p>
+
+                <div class="reference-box">
+                    <h4 class="font-bold mb-4 uppercase text-xs tracking-widest text-amber-500">References</h4>
+                    <ul class="space-y-4">
+                        <li>Arakaki, Y. (2023). Anti-Capitalist Ideologies Uncovered in the Marxist Analysis of Hwang Dong-hyuk’s Netflix Original Squid Game (2021). Access*: Interdisciplinary Journal of Student Research and Scholarship, [online] 7(1). Available at: <a href="https://digitalcommons.tacoma.uw.edu/access/vol7/iss1/4/" target="_blank">https://digitalcommons.tacoma.uw.edu/access/vol7/iss1/4/</a>.</li>
+                        <li>Han, B.-C. (2017) Psychopolitics: Neoliberalism and New Technologies of Power. London: Verso.</li>
+                        <li>Lotz, A.D. (2017) Portals: A Treatise on Internet Distributed Television. Ann Arbor: Michigan Publishing.</li>
+                        <li>Lobato, R. (2019) Netflix Nations: The Geography of Digital Distribution. New York: New York University Press.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- BLOG POST: ALL OF US ARE DEAD -->
+        <article data-view="post-zombie" class="py-24 px-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl font-bold serif mb-12">All of Us Are Dead: Streaming-Era Youth Horror in a Global Netflix Classroom</h1>
+            <div class="blog-post-content">
+                <p>When All of Us Are Dead was released on Netflix in January 2022, it immediately joined the wave of Korean series that have transformed the global streaming era (Lee, 2022). Although the series' setting is primarily a high school overrun by the zombie virus, the show combines intense horror, teen melodrama, and social critique in a way that feels tailor-made for binge-watching and international recommendation algorithms. Instead of being another generic zombie story, it is a streaming-era youth horror text about a generation abandoned by adults and made visible to the world through Netflix’s global platform.</p>
+                <p>One of the most striking aspects of the show is the criticism of Korean school culture and adult authority. The virus itself originates from a desperate attempt by a teacher who tries to protect his son from violent bullying by turning scientific arrogance into a metaphor for a system that refuses to confront structural violence (Conran, 2022). Throughout the series, institutional figures, from teachers and parents to politicians and the military, are repeatedly shown abandoning or sacrificing students in the name of so-called ‘order and self-preservation’. Burt (2023) argues that All of Us Are Dead is one of Netflix’s most damning successes precisely because it portrays adults as either apathetic or actively harmful to young people's survival.</p>
+                <p>Moreover, All of Us Are Dead appears structured for the binge-watching habits that platforms like Netflix have normalised. Episodes often end on intense cliffhangers, such as doors about to burst open, characters in mid-fall, confessions interrupted by screams, which is designed as a deliberate “one more episode” hook. Castro (2026) describes the series as still hitting “like a jump scale as she emphasised how its relentless pacing encourages hours of continuous watching. This combination of exhaustion and compulsion reflects broader concerns about binge-watching in the streaming age, which research has associated with both pleasure and negative effects, such as sleep disruption and emotional fatigue (Starosta and Izydorczyk, 2020). All of Us Are Dead maximises the pleasure of immersion by spending time on characters, escalating tension, and developing complex emotional arcs, while also indulging in excessive narrativity (Conran, 2022).</p>
+                <p>Meanwhile, the series’ success is closely connected to Netflix’s global strategy around non-English originals. Netflix has framed titles like Squid Game, Kingdom and All of Us Are Dead as proof that language barriers are less important than a strong concept and effective marketing in the streaming era. According to coverage in Lee (2022), All of Us Are Dead spent multiple weeks at number one on the service’s global non-English TV chart and was watched for hundreds of millions of hours in its first month. Its prominence on the Netflix homepage, autoplay trailers, and personalised recommendations helped turn the Korean zombie drama into mainstream international content.</p>
+                <p>In addition, this is not just a story of platform triumph. Conran (2022) points out that the show’s moral universe can be unsettling. Certain characters’ deaths feel arbitrary, moments of mercy lead to disaster, and the narrative often rewards self-interest over solidarity. Therefore, All of Us Are Dead reflects a darker side of youth horror that aligns with an online moment defined by climate anxiety, pandemic trauma and distrust in institutions. By the end of its first season, the series leaves many questions unresolved, and Netflix has renewed the series for a second season, indicating its continued support for the show (Pozirekides, 2025). Within this ecosystem, All of Us Are Dead moves beyond its 12 episodes, continually reappearing in memes, fan edits, and online debates.</p>
+                <p>In conclusion, All of Us Are Dead is a powerful example of what television series in the streaming era can look like, with a locally grounded and socially critical youth horror story that becomes a global hit through Netflix’s distribution model and binge-friendly design. Its extended episodes, dramatic cliffhangers and intense emotional tone encourage rapid consumption, while its harsh depiction of adult failure and school violence resonates with broader generational anxieties. The series’ popularity also demonstrates how non-English productions can shape global television culture when streaming platforms position them as central rather than marginal content. In this way, the show simultaneously capitalises on and critiques the world created by streaming.</p>
+
+                <div class="reference-box">
+                    <h4 class="font-bold mb-4 uppercase text-xs tracking-widest text-amber-500">Reference list (Harvard style)</h4>
+                    <ul class="space-y-4">
+                        <li>Burt, K. (2023) ‘“All of Us Are Dead” remains Netflix’s most damning success’, Rolling Stone, 28 January. Available at: <a href="https://www.rollingstone.com/tv-movies/tv-movie-features/all-of-us-are-dead-netflix-most-damning-success-one-year-anniversary-1234668508/" target="_blank">https://www.rollingstone.com/tv-movies/tv-movie-features/all-of-us-are-dead-netflix-most-damning-success-one-year-anniversary-1234668508/</a> (Accessed 6 March 2026).</li>
+                        <li>Castro, A.M.. (2026) ‘This 3yearold Netflix horror series still hits like a jump scare’, Collider, 4 January. Available at: <a href="https://collider.com/all-of-us-are-dead-netflix-horror-series-worth-watching-2025/" target="_blank">https://collider.com/all-of-us-are-dead-netflix-horror-series-worth-watching-2025/</a> (Accessed: 6 March 2026).</li>
+                        <li>Conran, P. (2022) ‘All of Us Are Dead: Netflix’s highoctane zombie Kdrama has troubling moral core’, South China Morning Post, 25 January. Available at: <a href="https://www.scmp.com/lifestyle/k-pop/k-drama/article/3164750/k-drama-review-all-us-are-dead-netflixs-high-octane-zombie" target="_blank">https://www.scmp.com/lifestyle/k-pop/k-drama/article/3164750/k-drama-review-all-us-are-dead-netflixs-high-octane-zombie</a> (Accessed: 6 March 2026).</li>
+                        <li>Lee, M. (2022) ‘5 facts about Netflix’s chart-topping new zombie K-Drama “All Of Us Are Dead”’, Her World Singapore, 8 February. Available at: <a href="https://www.herworld.com/life/entertainment/facts-netflix-all-of-us-are-dead" target="_blank">https://www.herworld.com/life/entertainment/facts-netflix-all-of-us-are-dead</a> (Accessed: 7 March 2026).</li>
+                        <li>Starosta, J.A. and Izydorczyk, B., 2020. Understanding the phenomenon of binge-watching—a systematic review. International Journal of Environmental Research and Public Health, 17(12), p.4469. Available at: <a href="https://doi.org/10.3390/ijerph17124469" target="_blank">https://doi.org/10.3390/ijerph17124469</a>.</li>
+                        <li>Pozirekides, T. (2025) ‘All of Us Are Dead Rises Again as Season 2 Production Begins’, Tudum by Netflix, 23 July. Available at: <a href="https://www.netflix.com/tudum/articles/all-of-us-are-dead-season-2-renewed" target="_blank">https://www.netflix.com/tudum/articles/all-of-us-are-dead-season-2-renewed</a> (Accessed: 6 March 2026)</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- BLOG POST: WHITE COLLAR -->
+        <article data-view="post-collar" class="py-24 px-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl font-bold serif mb-12">Why do we support Neal Caffrey: charm, control, White Collar Crime Ethics</h1>
+            <div class="blog-post-content">
+                <p>"White Collar" (2009-2014) is made by Jeff Eastin, Matt bomer plays Neal Caffrey and shows a sophisticated, attractive version of the crime. The series is the story of a high-level fraud who agreed to work for the white collar Department of the Federal Bureau of investigation under the supervision of investigator Peter Burke after being arrested. It is a superficial program play full of theft, financial fraud, and careful planning in the surface. But its persistent appeal lies in a deeper question why spectators support criminals. The answer is how this program recreates the crime. It is not a moral failure, but the elaborate of charm, wisdom, and esthetics. A sensitive expression, Neal Caffrey, has been built as an "ideal" white collar criminals. He has culture, his clothes are bright, sentimental and intellectual. Unlike violent criminals in the dark crime plays, Neal crime is refined by non violence. Forgery, art theft, and financial manipulation are presented as intellectual challenges, not injury actions. Such aesthetic framework is extremely important. This program deliberately softened the outcome of morals. The victims are seldom standing. Financial losses are still abstract. Conversely, the lens remains in a luxurious apartment, order made suit, Manhattan skyline. Crime becomes fashionable. In this way, white collar took advantage of the long-lasting television tradition of an attractive anti hero. But unlike the morally ambiguous character in modern vocational play, Neal's false behavior has been balanced by humor, loyalty and weakness of emotion. His charm became a moral buffer. Encourage the audience to appreciate his wisdom and ignore the systematic impact of white collar crime. So this series shows how the media framework forms a moral reaction. It becomes easy to forgive if the crime is beautified. One of the definitive features of crime in the system, not white collar, is that Neal does not observe the law. He was absorbed in this organization. I work under the FBI monitoring and attach my ankle monitor. He is an asset and a prisoner. Such an epic structure has an ideological significance. This program proposes that the deviation can be reclaimed without placing the crime as a rebel to capitalism or state power. The value of Neal is in his usefulness. His criminal expertise was nationalized. This reflects the broader neoliberal logic that human resources can result in compensation. Morality is secondary productivity. The FBI is portrayed as a fundamentally ethical and rational way to strategically utilize criminals to gain access to the agency. What is important is that this program avoids deeper structural criticism. Real world white-collar crime - corporate fraud, insider trading and financial corruption - have massive economic damage. But white collar is not very involved in these systems. Crime is individuality and not political. Neal is not representative but outstanding. This allows the series to keep the world safe. The mechanism may change rules but is stable. This system can fix me by integrating talented outsiders.</p>
+                
+                <h2>Monitoring and Soft Authority</h2>
+                <p>The relationship between Neal and Agent Peter Burke forms the emotional core of the series. Petrus stands for discipline, family stability and moral clarity. Neal embodies the identity and performance of the river. Their partnership developed into a dynamic of fatherly love. Surveillance is at the heart of this relationship. Neals ankle bracelet constantly reminds of physical control. However, the show rarely describes the surveillance as oppressive. Instead, it was set as a guideline. Peter leads Neal. Control is a concern. This dynamic reflects a milder form of authority. The state doesn’t destroy Neal – it controls him. Therefore, the show normalizes surveillance by embedding surveillance in friendship and trust. This description is striking in the modern context of digital tracking, algorithmic monitoring and data acquisition. Control is protective and non-invasive. Viewers are encouraged to receive the necessary and even friendly supervision.</p>
+
+                <h2>Identity is Performance</h2>
+                <p>Neal's greatest skill is not the faking itself, but the depiction. He easily assumes accents, professional and social roles. The identity of the White Collar is dynamic, strategic and aesthetic. This theme resonates strongly in the media culture dominated by self-branding. In an age of carefully planned social media roles and professional networking platforms, identity is increasingly being executed rather than set. Neal own ability to interpret the environment and show the “right” version reflects the pressure of the modern marketing self. However, the series skillfully recognizes the costs of continuous performance, and Neal struggles with trust, belonging, and emotional stability. His charm was strong, but isolated him. The truth remains incomprehensible. Through outstanding performances, the show raises questions about sincerity in modern society. If an identity can be designed so convincingly, how do we measure the truth?</p>
+
+                <h2>Why are we still supporting him?</h2>
+                <p>Eventually, the audience supported Neal as the series built a carefully constructed moral hierarchy. His crimes are mental crimes and not violent crimes. His victim is an unseen organization. His loyalty to his friends makes him human. Above all, he acts in a narrative of the promise of salvation. The white collar pampered the audience with the imagination of clever rebellion and at the same time confirmed the institutional order. It offers no cruel sophistication, no despair moral tension. Neal charm makes crime playful; Peter's authority has restored the balance. The lasting appeal of the program lies in this balance. It assures viewers that intelligence and charm can negotiate morality – a system that, while imperfect, can accommodate and reform even its most talented offenders. Ultimately, White Collar is no longer about the crime itself, but about the media that teaches us to interpret the crime. By packaging white-collar crimes as elegant and redeemable, the series reveals the power of television to shape moral perception. Perhaps this is the most conspicuous scam: not Neal fraud against banks and collectors, but the show’s subtle conviction that charm can forgive almost anything.</p>
+            </div>
+        </article>
+
+        <!-- BLOG POST: GRAND TOUR -->
+        <article data-view="post-tour" class="py-24 px-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl font-bold serif mb-12">From Speed to Culture: The Practical Entertainment Value of "The Grand Tour"</h1>
+            <div class="blog-post-content">
+                <p>With the advent of streaming media age, it has become difficult to predict what the viewers anticipate when watching reality-based shows. Their desire is to watch something which is authentic, but they also want to watch something which is interesting and contains a sense of drama. A very good example of this is The Grand Tour. At first glance, it resembles a car show; however, upon closer examination, it becomes apparent that the content offered by it is far beyond simply cars. It is a cultural standpoint with humor being British, the style of storytelling is a buddy-like relation between the three hosts, and it is a novel form of cultural production in the streaming media age.</p>
+                <p>To begin, "The Grand Tour" has kept up with the old-fashioned traditions of the British automobile programs, including over-exaggerated jokes, high-stakes competition style, and romanticized vision of mechanics and drive. When it was shifted to the Amazon service, however, the level of entertainment was increased even more. The jokes and challenges between the three hosts plus other so-called off-the-wall but hilarious episodes have made the show very consistent. To quote Ellis (2000), contemporary television depends greatly on the personality of the host. Most of the fun of watching the program is not in what vehicles are being presented but in how the hosts behave. In "The Grand Tour", it is very clear: what the audience sees is how these three people relate, and the car is an instrument that creates drama.</p>
+                <p>To begin with, the cultural values of the given program can also be seen in its representation of the concept of travel. The program continuously goes around the globe visiting all kinds of countries, including deserts, jungles and city streets, all of which are shown as adventures and challenges. Though such a form of presentation has extremely entertaining impact, it also reflects the perception of the team behind the program of the cultures of the different locations. The idea of the tourist gaze introduced by Urry (1990) is highly appropriate in this context: the world that the audience perceives is the main moments that the camera chooses on behalf of the audience. The pictures of various countries shown in the movie "The Grand Tour" are occasionally intentionally exaggerated humor, and at other times more adventurous type of curiosity. In this narrative the audience tends to comprehend the concept of foreign cultures as a visual and emotional phenomenon rather than in-depth cultural knowledge.</p>
+                <p>Moreover, the program also underscores the depiction of the so-called "masculine culture". The three hosts of The Grand Tour constantly taunt, provoke, and contradict one another, but finally find solutions to the problem. Such relationship is quite similar to a form of a so-called masculinity friendship, which is sold as entertainment. Fiske (1987) noted how television shows frequently promote particular cultural symbols by their repetitive actions. This programme has such typical masculine symbols as: being courageous to take risks, loving machines, and seeing danger as a joke. Even though most of them are exaggerated and staged, the audiences also develop some images of the male figure in this story.</p>
+                <p>In relation to real-life programs, "The Grand Tour" is not entirely an authentic program but a mix of both a semi-real and semi-dramatic condition. According to Hill (2005), reality-based shows tend to have blurry lines between what is considered as reality and entertainment, so viewers would be made to believe that the show is credible, yet at the same time, enjoy the thrill it brings. It is quite apparent in The Grand Tour: the danger appears to be real, but the audience is aware of the fact that the program team has prepared the conditions thoroughly; the conflicts between the hosts appear to be spontaneous, but there is also a significant aspect to them that belongs to the nature of the program.</p>
+                <p>Due to the rise in use of streaming media systems, this type of programming has been even more internationalized. Amazon allows the program to stream to the audience across the world simultaneously. The plot crosses borders, is light-hearted and funny and does not require a cultural context, which makes it very prone to global dissemination. According to Van Dijck (2013), digital platforms are redefining the manner in which cultural content is distributed, and The Grand Tour is a classic example; it is a combination of British-style humor, adventure and masculinity into an entertainment package that can be embraced by people all over the world.</p>
+                <p>To sum up, the importance of "The Grand Tour" is not just about introducing cars. It can be considered as a kind of cultural representation, which combines adventure, humour and the personality of the presenter. In the form of a reality show, it offers a cultural experience that can be consumed by the world population. To those of you who have interest in the cultural implications of reality shows, this particular program called "The Grand Tour" is highly worth analyzing since it exemplifies how reality shows in the era of streaming communicate cultural phenomena in an entertaining way.</p>
+
+                <div class="reference-box">
+                    <h4 class="font-bold mb-4 uppercase text-xs tracking-widest text-amber-500">References</h4>
+                    <ul class="space-y-4">
+                        <li>Ellis, J. (2000). Seeing things: Television in the age of uncertainty. I.B. Tauris.</li>
+                        <li>Fiske, J. (1987). Television culture. Routledge.</li>
+                        <li>Hill, A. (2005). Reality TV: Audiences and popular factual television. Routledge.</li>
+                        <li>Turner, G. (2010). Ordinary people and the media: The demotic turn. SAGE Publications.</li>
+                        <li>Urry, J. (1990). The tourist gaze: Leisure and travel in contemporary societies. Sage.</li>
+                        <li>Van Dijck, J. (2013). The culture of connectivity a critical history of social media. Oxford University Press.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- BLOG POST: JAPANESE ANIME (PDF Content with Verbatim References) -->
+        <article data-view="post-anime" class="py-24 px-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl font-bold serif mb-12">Japanese Anime series on TV and how it had changed in the streaming era</h1>
+            <div class="blog-post-content">
+                <p>In my post, I would like to discuss about Japanese Anime series on TV and how it had changed in the streaming era.</p>
+                <p>Back in the days, the broadcasting rights for Japanese Anime series was sold separately. It first goes to the Japanese TV companies, and after 1-3 years it would finally be available oversea by the DVD companies. There was no such thing as a streaming service, and fans oversea couldn't wait for such a long time for their favorite shows. So, fans started to stream it online on their own. One of their members who live in Japan firstly record Anime series that is broadcasted, and another fan makes the subtitle by their own. And in the end, they spread that around the internet and upload it to a pirated site. Crunchyroll, which was one of the pirated sites, had changed the situation. Crunchyroll started in 2006, and same as the other pirated sites, there were a lot of unauthorized anime sires uploaded on the website. In 2008, Crunchyroll gained investment from a venture company and was told to change the business model. Their business model before was based on advertising income from those unauthorized anime series uploaded on the website. And after they were told to change that, they deleted those unauthorized videos and started to negotiate the broadcasting rights with Japan's companies. And in 2009, the platform started offering officially licensed agreements, allowing viewers outside Japan to watch episodes shortly after their original broadcast. This change had made a huge change in the television industry, as it finally made a legal platform for oversea anime fans. There were fans who were using the pirate sites were using that kind of illegal websites because there isn't a valid platform to watch anime outside Japan, so many people started to use Crunchyroll. The legalization of anime streaming demonstrates how the development of digital platforms transformed not only viewing habits but also the global distribution system of television series in the streaming era.</p>
+                
+                <p>After Crunchyroll made the platform for the core anime fans, Netflix had done a huge job to make anime more to a main culture in the world. In 2015, Netflix had started their service for Japan. They already had a few anime contents before starting their service in Japan, but it wasn't one of the main cultures. And anime wasn't one of the main cultures in the world as well. It was considered a thing for maniac people more than now. When Netflix came to Japan, they were aiming to get a contract directly from the anime making company rather than getting a contract via the broadcasting rights companies. And they even began to start investing in Japanese animation so they can expand non-English content to gain global subscribers. One of the things that Netflix did as part of other platforms was to focus on global simultaneous release. Back in the days, anime broadcasting licensing was sold separately across every country, and it was difficult to provide the same series worldwide at the same time. Netflix has solved this problem by securing international rights in advance. This is one of the things that Netflix had done to change anime to be a mainstream entertainment rather than a subculture limited to specific countries. As a result, the number of viewers watching anime on Netflix has rapidly increased. And according to Netflix, it seems more than half of the Netflix subscribers had at least seen an anime episode once. And the amount of time spent on anime series on Netflix had tripled compared to 2019 to 2024.</p>
+                
+                <p>Another thing that Netflix had did is that they started to produce anime series by themselves. It takes a few years to produce an anime series, and early collaboration with the anime studios made it easier for Netflix in terms of distribution, marketing, and localization. And not only that, producing Netflix original anime series will be a big advantage against other streaming services. They had done an amazing job in this original anime series. They aimed to have a series that would attract every range of people from people that never watched anime, to maniac people. I would say that Baki-Dou and Violet Evergarden are great examples for that aim. Baki-Dou has a simple story line only focused on being a stronger man, and Violet Evergarden has a hart worming beautiful story line with great artwork. And not only that, but they also even handled old anime series as well, making them one of the priorities in streaming services.</p>
+
+                <!-- ACTUAL PDF IMAGE 1: BAKI-DOU -->
+                <div class="post-image-container">
+                    <img src="Screenshot 2026-03-09 at 17.29.41.png" alt="Baki-Dou" class="w-full h-auto object-cover max-h-[600px]">
+                    <p class="mt-4 text-center italic text-sm text-amber-500 font-bold uppercase tracking-widest">Baki-Dou</p>
+                </div>
+                
+                <!-- ACTUAL PDF IMAGE 2: VIOLET EVERGARDEN -->
+                <div class="post-image-container">
+                    <img src="Screenshot 2026-03-09 at 17.29.49.png" alt="Violet Evergarden" class="w-full h-auto object-cover max-h-[600px]">
+                    <p class="mt-4 text-center italic text-sm text-amber-500 font-bold uppercase tracking-widest">Violet Evergarden</p>
+                </div>
+
+                <p>In conclusion, the history of Japanese anime series shows how television content has changed in the streaming era. In the past, anime was distributed slowly through separated broadcasting rights, which led many overseas fans to rely on pirated recordings shared on the internet. The legalization of streaming through platforms such as Crunchyroll created the first accessible environment for international fans, while the later entry of Netflix transformed anime from a niche subculture into global mainstream entertainment. By securing worldwide rights, investing directly in production, and releasing series simultaneously across different countries, streaming platforms changed not only how audiences watch television series but also how those series are produced and distributed. The case of Japanese anime demonstrates that the streaming era has turned television from a local broadcast medium into a global digital industry where viewers around the world can share the same content at the same time.</p>
+
+                <div class="reference-box">
+                    <h4 class="font-bold mb-4 uppercase text-xs tracking-widest text-amber-500">Reference</h4>
+                    <p class="text-sm">Netflix: <a href="https://av.watch.impress.co.jp/docs/series/rt/2030049.html" target="_blank">https://av.watch.impress.co.jp/docs/series/rt/2030049.html</a></p>
+                    <p class="text-sm mt-2">Baki-Dou: <a href="https://baki-anime.jp/" target="_blank">https://baki-anime.jp/</a></p>
+                    <p class="text-sm mt-2">Violet Evergarden: <a href="https://tv.violet-evergarden.jp/" target="_blank">https://tv.violet-evergarden.jp/</a></p>
+                </div>
+            </div>
+        </article>
+
+        <!-- BLOG POST: INVASION -->
+        <article data-view="post-invasion" class="py-24 px-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl font-bold serif mb-12">Crisis, Media, and Human Response: A Multidimensional Reading of Invasion</h1>
+            <div class="blog-post-content">
+                <p>In the contemporary media context, science fiction is no longer merely a narrative form concerned with futuristic technology or extraterrestrial life; it has gradually become an important cultural vehicle for reflecting on real social structures and the human condition. From the perspectives of genre studies and communication theory, disaster and invasion narratives often function as “social allegories”: by placing characters within extreme situations, they magnify tensions and anxieties embedded in everyday life that might otherwise remain unnoticed. Science fiction tells us about the future, but it also tells us about present. It is a place where we can experience alternate realities,rooted in different approaches for ordering society or affected by the development of new technologies(Steward,2019).As scholars in cultural studies have pointed out, popular media texts do not simply represent reality; through narrative choices, the construction of perspective, and the presentation of information, they actively participate in the production of meaning and the organization of social emotion. In science fiction films, we explore remote universes and use yet unknown technologies - the world as we know it is left behind(Fritz,2020,).</p>
+                <p>Invasion, distributed by Apple TV+, positions itself within the familiar framework of alien invasion science fiction, yet it deliberately unsettles the conventions of that genre. Rather than foregrounding large-scale military resistance or spectacular destruction, the series adopts a restrained, character-centered narrative that disperses its storyline across multiple continents. This structural choice transforms the alien invasion from a visual spectacle into a thematic device through which the series interrogates human fragility, global fragmentation, and the unstable dynamics of information circulation in contemporary society. In doing so, Invasion becomes less a story about extraterrestrial conquest and more a meditation on epistemological uncertainty and communicative crisis in a globalized world.</p>
+                <p>The most striking feature of the series lies in its refusal to construct a singular heroic arc. Instead of concentrating narrative authority in political leaders, scientists, or military strategists, the show follows ordinary individuals—parents, soldiers, children, and technicians—whose lives are disrupted by an incomprehensible threat. The alien presence remains partially obscured for much of the narrative, displacing visual confirmation with ambiguity and delay. This withholding of spectacle generates a pervasive atmosphere of uncertainty, compelling viewers to share in the characters’ disorientation. The invasion unfolds unevenly and indirectly, filtered through localized experiences shaped by culture, geography, and social position. By fragmenting the narrative across disparate global locations, the series mirrors the structure of contemporary globalization itself: interconnected yet internally divided, synchronized yet experienced asymmetrically.</p>
+                <p>Within this narrative framework, the alien invasion operates as a catalyst that exposes preexisting vulnerabilities rather than creating entirely new ones. Families fracture under stress, trust in institutions erodes, and social hierarchies reveal their instability. The crisis strips away assumptions of human dominance and technological supremacy, confronting characters with the limits of their knowledge and control. In contrast to traditional invasion narratives that culminate in triumphant counterattack or scientific breakthrough, Invasion sustains a mood of existential precarity. The series suggests that humanity’s greatest challenge lies not merely in defeating an external enemy but in confronting the fragility of its own social and epistemic foundations. Fear becomes the dominant affective force, manifesting not only as terror of the alien but as anxiety about the reliability of perception, authority, and communal bonds.</p>
+                <p>This thematic emphasis is reinforced by the show’s sustained attention to media and communication. Information circulates through news broadcasts, digital networks, and governmental announcements, yet it rarely stabilizes meaning. Instead, messages are incomplete, delayed, or strategically filtered. Authorities appear to possess only partial knowledge, and their attempts to manage public perception underscore the entanglement of power and communication. The acceleration of information flow does not clarify reality; rather, it amplifies confusion and emotional contagion. Rumors spread rapidly, interpretations compete, and uncertainty becomes systemic. In this respect, the alien invasion functions as a metaphor for contemporary information crises, in which technological connectivity intensifies rather than resolves epistemological instability. The question of what is happening becomes inseparable from the question of who controls the narrative.</p>
+                <p>Moreover, the series highlights how global catastrophe is refracted through inequalities of geography and access. Although the invasion is planetary in scope, its consequences are unevenly distributed. Mobility, resources, and proximity to institutional power shape the capacity for survival. This unevenness challenges the idealized notion that shared threat necessarily produces universal solidarity. While moments of cooperation and empathy emerge, they coexist with opportunism, denial, and self-preservation. Institutions attempt to project authority, yet their legitimacy elderly in the face of forces they cannot fully comprehend or contain. By foregrounding these asymmetries, the series situates the alien invasion within broader questions of globalization, governance, and structural vulnerability.</p>
+                <p>Technology occupies an ambivalent position throughout the narrative. Surveillance systems, communication infrastructures, and military hardware symbolize humanity’s aspiration to mastery, yet they also reveal profound dependence. Digital networks connect individuals across vast distances, but they also transmit panic with unprecedented speed. The show resists technological determinism, presenting innovation as neither inherently salvific nor inherently destructive. Instead, technology becomes meaningful only within ethical and interpretive frameworks that are themselves unstable. In a media-saturated environment, perception shapes reality as much as empirical fact, and collective behavior is guided as much by narrative framing as by objective threat.</p>
+                <p>Ultimately, Invasion subverts genre expectations by transforming extraterrestrial contact into a lens for examining the psychological and communicative conditions of modern life. Its measured pacing and fragmented structure reflect a world in which certainty has eroded and authority is perpetually contested. The alien presence, though central to the plot, functions primarily as a narrative pressure that reveals deeper structural fissures within families, institutions, and global systems of knowledge. By emphasizing ambiguity over spectacle and vulnerability over heroism, the series invites viewers to reconsider not only how humanity might respond to an external invasion, but also how it negotiates meaning, trust, and solidarity in an era defined by informational excess and existential uncertainty.</p>
+                <p>Taken together, the series, through its intertwined depiction of media information, technological dependence, social structures, and psychological responses, provides a multidimensional perspective for observing how contemporary society operates amid uncertainty and complex information. It not only prompts us to consider “how we would respond if the world were disrupted by unknown forces,” but also guides us to reflect on how the modern media environment shapes, extends, and even amplifies human experiences of crisis, information, and control.</p>
+
+                <div class="reference-box">
+                    <h4 class="font-bold mb-4 uppercase text-xs tracking-widest text-amber-500">Sources</h4>
+                    <ul class="text-xs space-y-2 break-all">
+                        <li><a href="https://library-collections-search.westminster.ac.uk/permalink/44WST_INST/15cuut4/alma997587238403711" target="_blank">https://library-collections-search.westminster.ac.uk/permalink/44WST_INST/15cuut4/alma997587238403711</a></li>
+                        <li><a href="https://library-collections-search.westminster.ac.uk/permalink/44WST_INST/15cuut4/alma997145847903711" target="_blank">https://library-collections-search.westminster.ac.uk/permalink/44WST_INST/15cuut4/alma997145847903711</a></li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-20 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-center md:text-left">
+                <span class="text-2xl font-bold serif italic text-amber-500">Paradigm Stream</span>
+                <p class="text-xs text-zinc-500 mt-2 uppercase tracking-widest">A Media Studies Research Project</p>
+            </div>
+            <div class="flex gap-12 text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">
+                <button onclick="showView('home')" class="hover:text-amber-500">Home</button>
+                <button onclick="showView('about')" class="hover:text-amber-500">About</button>
+                <span class="text-zinc-700">|</span>
+                <span class="text-zinc-600 italic font-light">LO 1, 2, 3, 4</span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 text-center text-[10px] text-zinc-700 tracking-widest">
+            © 2026 SCREEN STUDIES COLLECTIVE. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script>
+        function showView(viewId) {
+            const views = document.querySelectorAll('[data-view]');
+            views.forEach(v => v.classList.remove('active'));
+            
+            const target = document.querySelector(`[data-view="${viewId}"]`);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
